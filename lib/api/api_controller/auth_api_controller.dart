@@ -75,7 +75,7 @@ class AuthApiController with ApiHelper {
       "code": code,
       "email": email,
       "password": password,
-      "confirmation_password": password,
+      "password_confirmation": password,
     });
     if (response.statusCode == 200 || response.statusCode == 400) {
       var jsonResponse = jsonDecode(response.body);
