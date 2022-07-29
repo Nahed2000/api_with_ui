@@ -3,6 +3,7 @@ import 'package:api_review/screen/auth/register_screen.dart';
 import 'package:api_review/screen/category/categories_screen.dart';
 import 'package:api_review/screen/category/categoty_product.dart';
 import 'package:api_review/screen/home_screen.dart';
+import 'package:api_review/screen/image/image_screen.dart';
 import 'package:api_review/screen/lunch_screen.dart';
 import 'package:api_review/screen/user/user_image_screen.dart';
 import 'package:api_review/screen/user/user_index.dart';
@@ -11,6 +12,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'screen/auth/forget_password.dart';
+import 'screen/image/upload_image.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute:'/login_screen',
+      initialRoute:'/home_screen',
         routes:
         {
           '/lunch_screen':(context) =>const LunchScreen(),
@@ -38,6 +40,8 @@ class MyApp extends StatelessWidget {
           '/category_product':(context) =>const CategoryProductScreen(),
           '/user_image_screen':(context) =>const UserImageScreen(),
           '/user_index':(context) =>const UserIndexScreen(),
+          '/image_screen':(context) =>const ImageScreen(),
+          '/upload_image':(context) =>const UploadImage(),
         }
     );
   }

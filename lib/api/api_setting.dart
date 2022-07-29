@@ -11,4 +11,5 @@ class ApiSetting{
  static const String forget = '${baseApiUrl}students/auth/forget-password';
  static const String reset = '${baseApiUrl}students/auth/reset-password';
  static const String logout = '${baseApiUrl}students/auth/logout';
+ static const String image = '${baseApiUrl}student/images/{id}';
 }

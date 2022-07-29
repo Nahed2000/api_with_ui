@@ -33,22 +33,30 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               CustomButton(
                 title: 'Category',
-                onPress: () => Navigator.pushNamed(context, '/categories_screen'),
+                onPress: () =>
+                    Navigator.pushNamed(context, '/categories_screen'),
               ),
               const SizedBox(height: 20),
               CustomButton(
                 title: 'Category Product',
-                onPress: () => Navigator.pushNamed(context, '/category_product'),
+                onPress: () =>
+                    Navigator.pushNamed(context, '/category_product'),
               ),
               const SizedBox(height: 20),
               CustomButton(
                 title: 'User Image',
-                onPress: () => Navigator.pushNamed(context, '/user_image_screen'),
+                onPress: () =>
+                    Navigator.pushNamed(context, '/user_image_screen'),
               ),
               const SizedBox(height: 20),
               CustomButton(
                 title: 'User Index',
                 onPress: () => Navigator.pushNamed(context, '/user_index'),
+              ),
+              const SizedBox(height: 20),
+              CustomButton(
+                title: 'Images & Upload Image',
+                onPress: () => Navigator.pushNamed(context, '/image_screen'),
               ),
             ],
           ),
