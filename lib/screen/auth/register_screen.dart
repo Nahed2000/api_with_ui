@@ -173,7 +173,7 @@ class _RegisterScreenState extends State<RegisterScreen> with Helper {
     showSnackBar(context,
         message: apiResponse.message, error: !apiResponse.status);
     if (apiResponse.status) {
-      Navigator.pushReplacementNamed(context, '/home_screen');
+      Navigator.pushReplacementNamed(context, '/login_screen');
     }
   }
 
