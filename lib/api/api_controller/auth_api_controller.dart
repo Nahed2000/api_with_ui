@@ -30,7 +30,7 @@ class AuthApiController with ApiHelper {
     required String email,
     required String password,
   }) async {
-    var url = Uri.parse(ApiSetting.register);
+    var url = Uri.parse(ApiSetting.login);
     var response = await http.post(url, body: {
       "password": password,
       "email": email,

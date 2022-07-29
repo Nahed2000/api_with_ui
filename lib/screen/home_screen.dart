@@ -30,25 +30,25 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               CustomButton(
                 title: 'Category',
-                routeName: '/categories_screen',
+                onPress: () => Navigator.pushNamed(context, '/categories_screen'),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               CustomButton(
                 title: 'Category Product',
-                routeName: '/category_product',
+                onPress: () => Navigator.pushNamed(context, '/category_product'),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               CustomButton(
                 title: 'User Image',
-                routeName: '/user_image_screen',
+                onPress: () => Navigator.pushNamed(context, '/user_image_screen'),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               CustomButton(
                 title: 'User Index',
-                routeName: '/user_index',
+                onPress: () => Navigator.pushNamed(context, '/user_index'),
               ),
             ],
           ),

@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({
+  const  CustomButton({
     Key? key,
     required this.title,
-    required this.routeName,
+    required this.onPress,
+
   }) : super(key: key);
 
-  final String routeName;
+  final void Function() onPress;
   final String title;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () =>Navigator.pushNamed(context, routeName),
+      onPressed:onPress ,
       style: ElevatedButton.styleFrom(
         primary: Colors.lightBlue.shade400,
         minimumSize: const Size(double.infinity, 60),
