@@ -39,6 +39,7 @@ class _LoginScreenState extends State<LoginScreen> with Helper {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+
         elevation: 0,
         backgroundColor: Colors.white,
         centerTitle: true,
@@ -94,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> with Helper {
               alignment: Alignment.topRight,
               child: GestureDetector(
                 onTap: () => Navigator.pushNamed(context, '/forget_password'),
-                child: Text(
+                child: const Text(
                   'Forget Password',
                   style: TextStyle(color: CupertinoColors.activeBlue),
                 ),
@@ -103,13 +104,13 @@ class _LoginScreenState extends State<LoginScreen> with Helper {
             const SizedBox(height: 20),
             CustomButton(
                 onPress: () async => await _performLogin(), title: 'Login'),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text("Don't have account?"),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () =>Navigator.pushNamed(context, '/register_screen'),
                   child: const Text('Register Now!'),
                 ),
               ],

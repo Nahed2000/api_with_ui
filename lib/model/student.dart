@@ -10,6 +10,9 @@ class Student {
  late bool isActive;
 
  late String password ;
+
+
+ Student();
   Student.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     fullName = json['full_name'];

@@ -1,4 +1,5 @@
 import 'package:api_review/screen/auth/login_screen.dart';
+import 'package:api_review/screen/auth/register_screen.dart';
 import 'package:api_review/screen/category/categories_screen.dart';
 import 'package:api_review/screen/category/categoty_product.dart';
 import 'package:api_review/screen/home_screen.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         {
           '/lunch_screen':(context) =>const LunchScreen(),
           '/login_screen':(context) =>const LoginScreen(),
+          '/register_screen':(context) =>const RegisterScreen(),
           '/forget_password':(context) =>const ForgetPassword(),
           '/home_screen':(context) =>const HomeScreen(),
           '/categories_screen':(context) =>const CategoriesScreen(),
