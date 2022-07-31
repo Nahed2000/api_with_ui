@@ -1,3 +1,6 @@
+import 'package:api_review/api/api_controller/auth_api_controller.dart';
+import 'package:api_review/model/api_response.dart';
+import 'package:api_review/util/helper.dart';
 import 'package:flutter/material.dart';
 
 import '../widget/custom_button.dart';
@@ -9,7 +12,7 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen>with Helper {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,6 +26,24 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             color: Colors.white,
           ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () async {
+            ApiResponse apiResponse = await AuthApiController().logout();
+            if(apiResponse.status){
+              Navigator.pushReplacementNamed(context, '/login_screen');
+              showSnackBar(context, message: apiResponse.message, error: !apiResponse.status);
+            }
+            showSnackBar(context, message: 'Something went wrong', error: true);
+            },
+            icon: const Icon(
+              Icons.logout,
+            ),
+          ),
+        ],
+        iconTheme: const IconThemeData(
+          color: Colors.black
         ),
       ),
       body: Padding(
@@ -64,4 +85,5 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
 }

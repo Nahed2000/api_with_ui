@@ -94,7 +94,8 @@ class AuthApiController with ApiHelper {
         return ApiResponse(
             message: jsonResponse['message'], status: jsonResponse['status']);
       }
-    return ApiResponse(message: 'Logged In Successfully ', status: true);
+      print(response.statusCode);
+    return ApiResponse(message: 'Logged out Successfully', status: false);
     }
     return errorServer;
   }

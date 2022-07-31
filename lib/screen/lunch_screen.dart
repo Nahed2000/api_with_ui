@@ -1,3 +1,4 @@
+import 'package:api_review/storeg/pref_controller.dart';
 import 'package:flutter/material.dart';
 
 class LunchScreen extends StatefulWidget {
@@ -10,9 +11,10 @@ class LunchScreen extends StatefulWidget {
 class _LunchScreenState extends State<LunchScreen> {
   @override
   void initState() {
+    String rout = SharedPreferenceController().loggedIn? '/home_screen':'/login_screen';
     // TODO: implement initState
     Future.delayed(const Duration(seconds: 2),
-        () => Navigator.pushReplacementNamed(context, '/home_screen'));
+        () => Navigator.pushReplacementNamed(context, rout));
     super.initState();
   }
 

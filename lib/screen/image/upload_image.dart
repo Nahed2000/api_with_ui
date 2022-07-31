@@ -1,11 +1,12 @@
 import 'dart:io';
 
+import 'package:api_review/get/image_getx_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../util/helper.dart';
 
-class UploadImage extends StatefulWidget{
+class UploadImage extends StatefulWidget {
   const UploadImage({Key? key}) : super(key: key);
 
   @override
@@ -49,14 +50,14 @@ class _UploadImageState extends State<UploadImage> with Helper {
             Expanded(
               child: _pikedImage == null
                   ? IconButton(
-                      onPressed: () async=>await _pickImage(),
+                      onPressed: () async => await _pickImage(),
                       icon: const Icon(Icons.camera_alt_outlined, size: 80))
                   : Image.file(
                       File(_pikedImage!.path),
                     ),
             ),
             ElevatedButton.icon(
-              onPressed: () async=>await performUpload(),
+              onPressed: () async => await performUpload(),
               label: const Text('Upload Image '),
               icon: const Icon(
                 Icons.cloud_upload,
@@ -87,18 +88,27 @@ class _UploadImageState extends State<UploadImage> with Helper {
       },
     );
   }
-  Future<void>performUpload()async{
-    if(checkData()){
-     await upload();
+
+  Future<void> performUpload() async {
+    if (checkData()) {
+      await upload();
     }
   }
-  bool checkData(){
-    if(_pikedImage != null){
+
+  bool checkData() {
+    if (_pikedImage != null) {
       return true;
     }
     showSnackBar(context, message: 'Please Pick Image to Upload', error: true);
-    return false ;
+    return false;
   }
-  Future<void>upload()async{
+
+  Future<void> upload() async {
+    await ImageGetXcController.to.uploadImage(
+        file: File(_pikedImage!.path),
+        uploadCallBack: (apiResponse) {
+          showSnackBar(context,
+              message: apiResponse.message, error: !apiResponse.status);
+        });
   }
 }
