@@ -16,6 +16,7 @@ class ImageGetXcController extends GetxController {
       StudentImageApiController();
 
   RxList<StudentImage> listImage = <StudentImage>[].obs;
+  RxBool loading = false.obs;
 
   @override
   void onInit() {
@@ -25,8 +26,10 @@ class ImageGetXcController extends GetxController {
   }
 
   void readImage() async {
+    loading.value = true;
     ApiResponse<StudentImage> apiResponse =
         await _imageApiController.indexImage();
+    loading.value = false;
     if (apiResponse.status) listImage.value = (apiResponse.data) ?? [];
   }
 
@@ -35,7 +38,7 @@ class ImageGetXcController extends GetxController {
     required UploadCallBack uploadCallBack,
   }) async {
     StreamedResponse streamedResponse =
-        await _imageApiController.uploadImage(file: file);
+        await _imageApiController. uploadImage(file: file);
     streamedResponse.stream.transform(utf8.decoder).listen((String body) {
       if (streamedResponse.statusCode == 201) {
         var jsonResponse = jsonDecode(body);

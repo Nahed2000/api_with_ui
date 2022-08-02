@@ -59,7 +59,7 @@ class StudentImageApiController with ApiHelper {
       } else if (response.statusCode == 404 || response.statusCode == 401) {
         String message = response.statusCode == 401
             ? 'you must login again '
-            : 'Image not found';
+            : 'Selected Image not found';
         return ApiResponse(message: message, status: false);
       }
     return errorServer;

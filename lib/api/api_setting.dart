@@ -1,6 +1,7 @@
 class ApiSetting{
  static const String _baseUrl = 'http://demo-api.mr-dev.tech/';
  static const String baseApiUrl = '${_baseUrl}api/';
+ static const String imageUrl = '${_baseUrl}images/';
  static const String indexUser = '${baseApiUrl}users';
  static const String searchUser = '${baseApiUrl}user/search';
  static const String categories = '${baseApiUrl}categories';

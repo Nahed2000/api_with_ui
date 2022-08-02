@@ -16,6 +16,7 @@ class UploadImage extends StatefulWidget {
 class _UploadImageState extends State<UploadImage> with Helper {
   XFile? _pikedImage;
   late ImagePicker _imagePicker;
+  double? progressValue = 0;
 
   @override
   void initState() {
@@ -47,6 +48,12 @@ class _UploadImageState extends State<UploadImage> with Helper {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            LinearProgressIndicator(
+              backgroundColor: Colors.green.shade100,
+              color: Colors.green,
+              minHeight: 7,
+              value: progressValue,
+            ),
             Expanded(
               child: _pikedImage == null
                   ? IconButton(
@@ -79,6 +86,7 @@ class _UploadImageState extends State<UploadImage> with Helper {
   Future<void> _pickImage() async {
     XFile? image = await _imagePicker.pickImage(
       source: ImageSource.camera,
+      maxHeight: 200
     );
     setState(
       () {
@@ -107,8 +115,16 @@ class _UploadImageState extends State<UploadImage> with Helper {
     await ImageGetXcController.to.uploadImage(
         file: File(_pikedImage!.path),
         uploadCallBack: (apiResponse) {
+          updateValueOfLinearIndicator(value: apiResponse.status ? 1 : 0);
+
           showSnackBar(context,
               message: apiResponse.message, error: !apiResponse.status);
         });
+  }
+
+  void updateValueOfLinearIndicator({double? value}) {
+    setState(() {
+      progressValue = value;
+    });
   }
 }
